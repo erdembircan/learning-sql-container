@@ -1,3 +1,10 @@
 #!/bin/bash
 
-dockerId=erdembircan version=$(git describe --tags --abbrev=0) docker-compose $1 $2
+v=$(git describe --tags --abbrev=0)
+
+if [ -z "$v" ];
+then
+	v="latest"
+fi
+
+dockerId=erdembircan version=$v docker-compose $1 $2
