@@ -1,0 +1,29 @@
+version: "3.5"
+services:
+  db:
+    image: ${dockerId}/learningsql:${version}
+    container_name: learningsql-db
+    build:
+      context: db
+    environment:
+      MYSQL_ROOT_PASSWORD: 1234567890
+      MYSQL_DATABASE: bank
+    networks:
+      sql-network:
+        ipv4_address: 10.0.0.2
+  configdummy:
+    build: .
+    container_name: learningsql-configdummy
+    depends_on: 
+      - db
+    restart: on-failure
+    networks:
+      sql-network:
+        ipv4_address: 10.0.0.10
+networks:
+  sql-network:
+    name: learningsql-network
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.0.0.0/20
