@@ -1,3 +1,4 @@
+#!/bin/bash
 
 mysql -h 10.0.0.2 -u root -p1234567890 bank < bank.sql
 exit_status=$?
