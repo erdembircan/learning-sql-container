@@ -11,6 +11,18 @@ services:
     networks:
       sql-network:
         ipv4_address: 10.0.0.2
+
+  admin:
+    image: phpmyadmin/phpmyadmin
+    container_name: learningsql-admin
+    environment:
+      PMA_HOST: db
+    ports:
+      - 8080:80
+    networks:
+      sql-network:
+        ipv4_address: 10.0.0.3
+
   configdummy:
     build: .
     container_name: learningsql-configdummy

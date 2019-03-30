@@ -3,10 +3,13 @@
 <p/>
 
 ## learning-sql-container
-> A Docker container for Alan Beaulieu's wonderful book [Learning SQL](https://www.amazon.com/Learning-SQL-Master-Fundamentals/dp/0596520832). Includes ```bank``` database which is used throughout the book.
+
+> A Docker container for Alan Beaulieu's wonderful book [Learning SQL](https://www.amazon.com/Learning-SQL-Master-Fundamentals/dp/0596520832). Includes `bank` database which is used throughout the book.
 
 ### usage
+
 ---
+
 ```
 # give necessary permissions for .sh file
 chmod +x init.sh
@@ -26,4 +29,8 @@ docker container start learningsql-db
 
 # connect to Mysql server inside container
 docker container exec -it learningsql-db mysql -u root -p1234567890 bank
+or
+# navigate to `phpmyadmin` console from your browser at localhost port 8080
+localhost:8080
+
 ```
